@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "head.html" %}
+
+<body>
+
+  {% include "navbar.html" %}
+
+  	<div class="mt-5 pt-4">
+	    {% if messages %}
+	      {% for message in messages %}
+	        <div class="alert alert-{{ message.tags }}" role="alert">
+	          {{ message }}
+	          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	            <span aria-hidden="true">&times</span>
+	          </button>
+	        </div>
+	      {% endfor %} 
+	    {% endif %}
+	 </div>
+
+  {% block content %}
+
+  {% endblock %}
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  {% include "footer.html" %}
+  {% include "js.html" %}
+
+
+
+</body>
+</html>

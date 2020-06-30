@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!--/ Carousel Star /-->
+  <div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+      {% for obj in slider %}
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url('{{ obj.back_image.url }}')">
+          <div class="overlay overlay-a"></div>
+          <div class="intro-content display-table">
+            <div class="table-cell">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="intro-body">
+                      <h1 class="intro-title mb-4">
+                        <span class="color-b">{{ obj.color_title }}</span>
+                         {{ obj.title }}
+                      </h1>
+                      <p class="intro-subtitle intro-price">
+                        <a href="#"><span class="price-a">{{ obj.button_title }}</span></a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!--/ Carousel end /-->
+
+  <!--/ Services Star /-->
+  <section class="section-services section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Our Services</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% for obj in services %}
+        <div class="row">
+        <div class="col-md-4">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+              <div class="card-box-ico">
+                <span class="fa fa-gamepad"></span>
+              </div>
+              <div class="card-title-c align-self-center">
+                <h2 class="title-c">{{obj.first_title}}</h2>
+              </div>
+            </div>
+            <div class="card-body-c">
+              <p class="content-c">
+                {{obj.first_description}}
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+              <div class="card-box-ico">
+                <span class="fa fa-usd"></span>
+              </div>
+              <div class="card-title-c align-self-center">
+                <h2 class="title-c">{{obj.second_title}}</h2>
+              </div>
+            </div>
+            <div class="card-body-c">
+              <p class="content-c">
+                {{obj.second_description}}
+              </p>
+            </div>
+           
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+              <div class="card-box-ico">
+                <span class="fa fa-home"></span>
+              </div>
+              <div class="card-title-c align-self-center">
+                <h2 class="title-c">{{obj.third_title}}</h2>
+              </div>
+            </div>
+            <div class="card-body-c">
+              <p class="content-c">
+               {{obj.third_description}}
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!--/ Services End /-->
+
+  <!--/ Property Star /-->
+  <section class="section-property section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Latest Bike Added</h2>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div id="property-carousel" class="owl-carousel owl-theme">
+        {% for obj in latest_bike %}
+          <div class="carousel-item-b">
+            <div class="card-box-a card-shadow">
+              <div class="img-box-a">
+                <img src="{{ obj.bike_image.url }}" alt="" class="img-a img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-overlay-a-content">
+                  <div class="card-header-a">
+                    <h2 class="card-title-a">
+                      <a href="">{{ obj.name }}</a>
+                    </h2>
+                  </div>
+                 
+                  <div class="card-footer-a">
+                    <ul class="card-info d-flex justify-content-around">
+                      <li>
+                        <h4 class="card-info-title">{{ obj.speed }}</h4>
+                        <span>{{ obj.speed_limit }}</span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">{{ obj.brand }}</h4>
+                        <span>{{ obj.brand_name }}</span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">{{ obj.model }}</h4>
+                        <span>{{ obj.model_name }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--/ Property End /-->
+
+  <!--/ Testimonials Star /-->
+  <section class="section-testimonials section-t8 nav-arrow-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Motivation For Ride</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+        {% for obj in motivations %}
+
+          <div class="carousel-item-a">
+            <div class="testimonials-box">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-img">
+                    <img src="{{ obj.main_image.url }}" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-ico">
+                    <span class="ion-ios-quote"></span>
+                  </div>
+                  <div class="testimonials-content">
+                    <p class="testimonial-text">
+                      {{ obj.description }}
+                    </p>
+                  </div>
+                  <div class="testimonial-author-box">
+                    <img src="{{ obj.speaker_image.url }}" alt="" class="testimonial-avatar">
+                    <h5 class="testimonial-author">{{ obj.speaker_name }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
